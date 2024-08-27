@@ -21,6 +21,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_CHAT_NAME = "chatName";
     private static final String KEY_LAST_MESSAGE = "lastMessage";
     private static final String KEY_UNREAD_MESSAGE_COUNT = "unreadMessageCount";
+    private static final String KEY_CHAT_TYPE = "chatType";
 
 
     public DatabaseHandler(@Nullable Context context) {
@@ -29,8 +30,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY, "
-                + KEY_CHAT_NAME + " TEXT, " + KEY_LAST_MESSAGE + " TEXT, " + KEY_UNREAD_MESSAGE_COUNT + " INTEGER)";
+        String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + KEY_ID +
+                " INTEGER PRIMARY KEY, " + KEY_CHAT_NAME + " TEXT, " + KEY_LAST_MESSAGE +
+                " TEXT, " + KEY_UNREAD_MESSAGE_COUNT + " INTEGER, " + KEY_CHAT_TYPE + " INTEGER )";
         db.execSQL(CREATE_TABLE);
     }
 
@@ -47,6 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         contentValues.put(KEY_CHAT_NAME, chat.getChatName());
         contentValues.put(KEY_LAST_MESSAGE, chat.getLastMessage());
         contentValues.put(KEY_UNREAD_MESSAGE_COUNT, String.valueOf(chat.getUnreadMessageCount()));
+        contentValues.put(KEY_CHAT_TYPE, chat.getChatType().ordinal());
 
         db.insert(TABLE_NAME,null, contentValues);
         db.close();
@@ -68,6 +71,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 chat.setChatName(cursor.getString(1));
                 chat.setLastMessage(cursor.getString(2));
                 chat.setUnreadMessageCount(Integer.parseInt(cursor.getString(3)));
+                chat.setChatType(Chat.ChatType.onIndex(Integer.parseInt(cursor.getString(4))));
 
                 chats.add(chat);
             } while (cursor.moveToNext());

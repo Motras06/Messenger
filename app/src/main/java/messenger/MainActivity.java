@@ -7,7 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import messenger.ui.ChatsMenuFragment;
 import messenger.ui.registration.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,5 +27,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        replaceFragment(new ChatsMenuFragment());
+    }
+
+    void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainerView, fragment);
+        fragmentTransaction.commit();
     }
 }

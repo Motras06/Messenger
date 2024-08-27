@@ -8,4 +8,16 @@ public class Chat {
     String chatName;
     String lastMessage;
     int unreadMessageCount;
+    ChatType chatType;
+
+
+    public enum ChatType
+    {
+        Group,
+        PersonalChat;
+
+        public static ChatType onIndex(int i) {
+            return values()[i];
+        }
+    }
 }

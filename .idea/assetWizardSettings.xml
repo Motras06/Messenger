@@ -19,8 +19,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="key" />
-                            <entry key="sourceFile" value="D:\Messenger\app\src\main\res\drawable\Key.svg" />
+                            <entry key="outputName" value="group_chat_icon" />
+                            <entry key="sourceFile" value="C:\Users\User\Downloads\gmail_groups.svg" />
                           </map>
                         </option>
                       </PersistentState>
