@@ -15,7 +15,7 @@
         android:fontFamily="monospace"
         android:text="@string/Messenger_logo"
         android:textSize="40dp"
-        android:textColor="@color/textLogo"
+        android:textColor="@color/textLogo_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +64,33 @@
         android:layout_marginTop="4dp"
         app:layout_constraintStart_toEndOf="@+id/password_enter_icon"
         app:layout_constraintTop_toBottomOf="@+id/mail_enter" />
+
+    <Button
+        android:id="@+id/button_enter"
+        android:layout_width="235dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="332dp"
+        android:backgroundTint="@color/textLogo_button"
+        android:text="Enter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Logo"
+        app:layout_constraintVertical_bias="0.0"
+        android:fontFamily="@font/droid_sans"/>
+
+    <TextView
+        android:id="@+id/go_to_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="registration"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_enter"
+        app:layout_constraintVertical_bias="0.064" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

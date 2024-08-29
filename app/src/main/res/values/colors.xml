@@ -3,6 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Background">#999999</color>
-    <color name="textLogo">#2C2C2C</color>
+    <color name="textLogo_button">#2C2C2C</color>
     <color name="Labeltext">#5E5454</color>
 </resources>
