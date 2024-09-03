@@ -26,44 +26,60 @@
         android:id="@+id/mail_enter_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/mail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
+        app:layout_constraintTop_toBottomOf="@+id/Logo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/mail_enter"
-        android:text="mail"
-        android:textColor="@color/Labeltext"
-        android:layout_width="281dp"
-        android:layout_height="42dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="60dp"
+        android:hint="enter your email"
+        android:text="mail"
+        android:textColor="@color/Labeltext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/mail_enter_icon"
-        app:layout_constraintTop_toBottomOf="@+id/Logo" />
+        app:layout_constraintTop_toBottomOf="@+id/Logo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/password_enter_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:src="@drawable/key"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mail_enter_icon"
-        tools:layout_editor_absoluteX="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="40dp"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/password_enter"
-        android:text="password"
-        android:textColor="@color/Labeltext"
         android:layout_width="281dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
+        android:hint="enter your password"
+        android:text="password"
+        android:textColor="@color/Labeltext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/password_enter_icon"
-        app:layout_constraintTop_toBottomOf="@+id/mail_enter" />
+        app:layout_constraintTop_toBottomOf="@+id/mail_enter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button_enter"
