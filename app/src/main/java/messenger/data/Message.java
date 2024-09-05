@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Message {
     User sender;
-    String senderName;
-    String message;
-    LocalDateTime localDateTime;
+    String senderPersonalName;
+    String messageText;
+    LocalDateTime sendTime;
 }

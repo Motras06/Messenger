@@ -3,18 +3,23 @@ package messenger.ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.AdapterView;
 
 import messenger.data.Chat;
 import messenger.ui.adapters.ChatsAdapter;
 import messenger.ui.registration.R;
+import messenger.ui.registration.databinding.FragmentChatsMenuBinding;
 
 
 public class ChatsMenuFragment extends Fragment {
+
+    FragmentChatsMenuBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,14 +29,13 @@ public class ChatsMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chats_menu, container, false);
-        ListView listView = (ListView) view.findViewById(R.id.chats_list);
+        binding = FragmentChatsMenuBinding.inflate(getLayoutInflater());
 
         Chat chat1 = new Chat();
         chat1.setChatType(Chat.ChatType.PersonalChat);
         chat1.setId(0);
         chat1.setChatName("name1");
-        chat1.setLastMessage("lastmess");
+        chat1.setLastMessage("lastMess");
         chat1.setUnreadMessageCount(47);
 
         Chat chat2 = new Chat();
@@ -51,8 +55,18 @@ public class ChatsMenuFragment extends Fragment {
 
         Chat[] chats = { chat1,chat2,chat3 };
         ChatsAdapter chatsAdapter = new ChatsAdapter(getContext(), chats);
-        listView.setAdapter(chatsAdapter);
+        binding.chatsList.setAdapter(chatsAdapter);
 
-        return view;
+        binding.chatsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.fragmentContainerView, new ChatFragment());
+                fragmentTransaction.commit();
+            }
+        });
+
+        return binding.getRoot();
     }
 }

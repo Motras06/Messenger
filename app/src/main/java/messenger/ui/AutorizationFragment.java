@@ -22,7 +22,6 @@ public class AutorizationFragment extends Fragment {
 
     TextView textView;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
